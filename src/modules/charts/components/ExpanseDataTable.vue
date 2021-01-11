@@ -20,7 +20,8 @@ export default {
           value: "name"
         },
         { text: "Price", value: "price" },
-        { text: "Category", value: "type" }
+        { text: "Category", value: "type" },
+        { text: "Date", value: "date" }
       ]
     };
   },
