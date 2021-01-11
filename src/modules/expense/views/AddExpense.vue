@@ -21,7 +21,7 @@
           :items="types"
           :rules="typeRules"
           item-text="name"
-          item-value="id"
+          item-value="name"
           label="Expense types"
           required
         ></v-select>
