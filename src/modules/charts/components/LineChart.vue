@@ -9,6 +9,7 @@
 
 <script>
 import VueApexCharts from "vue-apexcharts";
+import { options } from "@/configs/lineChart";
 
 export default {
   name: "LineChart",
@@ -33,19 +34,6 @@ export default {
           }
         ],
         chartOptions: {
-          chart: {
-            height: 350,
-            type: "line",
-            zoom: {
-              enabled: false
-            }
-          },
-          dataLabels: {
-            enabled: false
-          },
-          stroke: {
-            curve: "straight"
-          },
           xaxis: {
             type: "datetime",
             categories: labelsX,
@@ -56,39 +44,13 @@ export default {
               }
             }
           },
-          grid: {
-            row: {
-              colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-              opacity: 0.5
-            }
-          },
-          fill: {
-            type: "gradient",
-            gradient: {
-              shade: "dark",
-              gradientToColors: ["#FDD835"],
-              shadeIntensity: 1,
-              type: "horizontal",
-              opacityFrom: 1,
-              opacityTo: 1,
-              stops: [0, 100, 100, 100]
-            }
-          },
-          markers: {
-            size: 4,
-            colors: ["#FFA41B"],
-            strokeColors: "#fff",
-            strokeWidth: 2,
-            hover: {
-              size: 7
-            }
-          },
           yaxis: {
             min: 0,
             title: {
               text: "price"
             }
-          }
+          },
+          ...options
         }
       };
     }

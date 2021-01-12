@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column align-center mt-16 pa-3">
     <h2 class="text-center mt-4">Add Expense</h2>
-    <div class="expense-form-wrapper mt-8">
+    <div class="expense-form-wrapper mt-8 w100">
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
           v-model="name"
@@ -41,7 +41,6 @@
               label="Date"
               hint="MM/DD/YYYY format"
               persistent-hint
-              prepend-icon="mdi-calendar-month-outline"
               v-bind="attrs"
               @blur="date = parseDate(dateFormatted)"
               v-on="on"
@@ -53,9 +52,11 @@
             @input="menu = false"
           ></v-date-picker>
         </v-menu>
-        <v-btn outlined color="success" class="mt-4" @click="submit"
-          >Save</v-btn
-        >
+        <div class="d-flex justify-center">
+          <v-btn outlined color="success" class="mt-4" @click="submit"
+            >Save</v-btn
+          >
+        </div>
       </v-form>
       <v-snackbar
         bottom
@@ -69,8 +70,11 @@
 </template>
 
 <script>
+import DataTimeMixin from "@/mixins/datetime";
+
 export default {
   name: "AddExpense",
+  mixins: [DataTimeMixin],
   data(vm) {
     return {
       valid: true,
@@ -108,18 +112,6 @@ export default {
         this.snackbar = true;
         this.$refs.form.reset();
       }
-    },
-    formatDate(date) {
-      if (!date) return null;
-
-      const [year, month, day] = date.split("-");
-      return `${month}/${day}/${year}`;
-    },
-    parseDate(date) {
-      if (!date) return null;
-
-      const [month, day, year] = date.split("/");
-      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     }
   },
   watch: {
@@ -132,6 +124,6 @@ export default {
 
 <style lang="scss" scoped>
 .expense-form-wrapper {
-  max-width: 350px;
+  max-width: 370px;
 }
 </style>

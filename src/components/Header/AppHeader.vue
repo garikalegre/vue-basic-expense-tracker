@@ -7,7 +7,11 @@
     elevation="0"
     class="main-app-bar"
   >
-    <v-toolbar-title>Expense Tracker</v-toolbar-title>
+    <v-toolbar-title
+      ><router-link class="cursor-pointer" :to="{ name: 'main' }" tag="div"
+        >Expense Tracker</router-link
+      ></v-toolbar-title
+    >
     <v-spacer></v-spacer>
     <ul>
       <li :class="{ active: isRouteActive('main') }" class="cursor-pointer">
