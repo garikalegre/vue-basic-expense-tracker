@@ -1,5 +1,12 @@
 <template>
-  <v-app-bar absolute dark color="primary" max-height="70" class="main-app-bar">
+  <v-app-bar
+    absolute
+    dark
+    color="primary"
+    height="60"
+    elevation="0"
+    class="main-app-bar"
+  >
     <v-toolbar-title>Expense Tracker</v-toolbar-title>
     <v-spacer></v-spacer>
     <ul>
@@ -34,7 +41,7 @@ export default {
 <style lang="scss" scoped>
 ul {
   display: flex;
-  height: 100%;
+  height: 60px;
   li {
     position: relative;
     width: 100px;
@@ -42,6 +49,10 @@ ul {
     justify-content: center;
     align-items: center;
     height: 100%;
+    &.active {
+      border-bottom: 3px solid white;
+      font-weight: bold;
+    }
     &.active:before {
       content: "";
       display: block;
