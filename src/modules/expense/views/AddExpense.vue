@@ -37,6 +37,7 @@
           <template v-slot:activator="{ on, attrs }">
             <v-text-field
               v-model="dateFormatted"
+              :rules="dateRules"
               label="Date"
               hint="MM/DD/YYYY format"
               persistent-hint
@@ -76,7 +77,7 @@ export default {
       name: null,
       nameRules: [
         v => !!v || "Name is required",
-        v => (v && v.length <= 10) || "Name must be less than 15 characters"
+        v => (v && v.length <= 15) || "Name must be less than 15 characters"
       ],
       price: null,
       priceRules: [v => !!v || "Price is required"],
@@ -84,6 +85,7 @@ export default {
       typeRules: [v => !!v || "Select type"],
       date: new Date().toISOString().substr(0, 10),
       dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
+      dateRules: [v => !!v || "Date is required"],
       menu: false,
       snackbar: false
     };

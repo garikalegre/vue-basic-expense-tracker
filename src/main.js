@@ -3,10 +3,14 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vuetify from "./plugins/vuetify";
+// import VueApexCharts from "vue-apexcharts";
+
 import "./plugins/vuetify-money.js";
 import "@/assets/styles/main.scss";
 
 Vue.config.productionTip = false;
+
+// Vue.use(VueApexCharts);
 
 new Vue({
   router,
